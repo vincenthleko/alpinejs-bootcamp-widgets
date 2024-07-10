@@ -42,14 +42,20 @@
     </style>
   </head>
   <body>
+    
     <div x-data="greetComponent">
       <h1>Greetings</h1>
-      <p x-text="greeting"></p>
-      <button @click="setLanguage('en')">English</button>
-      <button @click="setLanguage('sp')">Sepedi</button>
-      <button @click="setLanguage('fr')">French</button>
-      <button @click="setLanguage('it')">Italian</button>
+      <input type="text" x-model="name" placeholder="Enter your name" />
+      <select x-model="lang" @change="languageSelected = true">
+        <option value="">Select a language</option>
+        <option value="en">English</option>
+        <option value="sp">Sepedi</option>
+        <option value="zu">Zulu</option>
+        <option value="sh">Swahili</option>
+      </select>
+      <p x-show="languageSelected" x-text="greeting"></p>
     </div>
+   
     <hr />
 
     <div x-data="phoneBillComponent">
