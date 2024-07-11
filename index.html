@@ -14,7 +14,7 @@
     <script src="wordGame.js"></script>
     <style>
       body {
-        background-color: #66d7d1;
+        background-color: #8FD5A6;
       }
 
       input[type="text"] {
@@ -39,27 +39,41 @@
       button:hover {
         background-color: #218838;
       }
+
+      .row {
+        border: 2px solid black;
+        padding: 20px;
+        margin: 10px 0;
+        text-align: center;
+        background-color: #329F5B;
+        border-radius: 1em;
+      }
+
+      h1 {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    
-    <div x-data="greetComponent">
-      <h1>Greetings</h1>
+    <h1>AlpineJS widgets for bootcamp functions</h1>
+    <div x-data="greetComponent" class="row">
+      <h2>Greetings</h2>
       <input type="text" x-model="name" placeholder="Enter your name" />
       <select x-model="lang" @change="languageSelected = true">
         <option value="">Select a language</option>
         <option value="en">English</option>
         <option value="sp">Sepedi</option>
-        <option value="zu">Zulu</option>
-        <option value="sh">Swahili</option>
+        <option value="fr">isiZulu</option>
+        <option value="it">Swahili</option>
       </select>
-      <p x-show="languageSelected" x-text="greeting"></p>
+      <p x-show="languageSelected && name" x-text="greeting"></p>
     </div>
-   
-    <hr />
+    <hr>
 
-    <div x-data="phoneBillComponent">
-      <h1>Bill Calculator</h1>
+    <div x-data="phoneBillComponent" class="row">
+      <h2>Bill Calculator</h2>
+      <p>R2.75 per call</p>
+      <p>R0.65 per sms</p>
       <label for="phoneString"
         >Enter phone activities (e.g., call, sms, call):</label
       >
@@ -67,10 +81,14 @@
       <button @click="calculateBill">Calculate Bill</button>
       <p x-text="billAmount"></p>
     </div>
-    <hr />
+    <hr>
 
-    <div x-data="airtimeComponent">
-      <h1>Airtime Calculator</h1>
+    <div x-data="airtimeComponent" class="row">
+      <h2>Airtime Calculator</h2>
+      <p>R0.65 per sms</p>
+      <p>R1.88 per call</p>
+      <p>R12 per data.</p>
+
       <label for="usageString"
         >Enter projected usage (e.g., call, sms, data):</label
       >
@@ -83,10 +101,10 @@
 
       <p x-text="remainingAirtime"></p>
     </div>
-    <hr />
+    <hr>
 
-    <div x-data="textAnalysisComponent">
-      <h1>Word Game</h1>
+    <div x-data="textAnalysisComponent" class="row">
+      <h2>Word Game</h2>
       <label for="sentence">Enter a sentence:</label>
       <input type="text" id="sentence" x-model="sentence" />
 
